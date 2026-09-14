@@ -41,6 +41,18 @@ cards.card_id → transactions.card_id
 merchants.merchant_id → transactions.merchant_id
 branches.branch_id → transactions.branch_id
 
+customers
+    │
+    ▼
+  cards
+    │
+    ▼
+transactions
+   ├──────────────► merchants
+   │
+   └──────────────► branches
+
+
 6. Data Preparation & Quality Checks
 •	Validated table and column structures using information_schema.
 •	Checked transaction, customer, card, merchant and branch record counts.
@@ -194,6 +206,14 @@ customer behavior, merchant spending and branch performance.
 •	Reusable PostgreSQL analytical views.
 •	Interactive Power BI slicers.
 •	Professional GitHub portfolio repository.
+
+15.Author
+Shyam
+Aspiring Data Analyst
+Skills: SQL | PostgreSQL | Power BI | Excel | Python
+
+ Portfolio Project
+This project demonstrates practical skills in SQL data analysis, business problem solving, data modeling, KPI development, Power BI visualization and dashboard storytelling.
 
 
 
