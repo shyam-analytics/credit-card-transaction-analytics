@@ -1,2 +1,201 @@
-# credit-card-transaction-analytics
-Credit Card Transaction Analytics using PostgreSQL and Power BI
+                                        CREDIT CARD TRANSACTION ANALYTICS
+                                PostgreSQL + Power BI | Professional Project Documentation
+
+1. Project Overview
+An end-to-end Credit Card Transaction Analytics project using PostgreSQL and Power BI. 
+The project transforms credit card transaction data into business insights covering customer behavior, transaction performance, payment modes, card networks, merchants, categories, branches and geographic performance.
+
+2. Business Objectives
+•	Measure total transaction amount and transaction volume.
+•	Understand customer spending behavior and transaction frequency.
+•	Identify repeat, high-spending and high-frequency customers.
+•	Analyze approval, decline and reversal patterns.
+•	Compare spending across payment modes and card networks.
+•	Identify top merchants and high-performing merchant categories.
+•	Analyze average transaction value across categories and merchants.
+•	Compare branch-level transaction amount, volume and decline performance.
+•	Analyze customer distribution by state and transaction spending by city.
+•	Build interactive, executive-ready Power BI dashboards.
+
+3. Technology Stack
+•	PostgreSQL — data storage, SQL analysis, joins, aggregations and analytical views.
+•	DBeaver — database management and SQL development.
+•	Power BI — interactive dashboards, KPI cards, visualizations and slicers.
+•	CSV — source data and data inspection.
+•	GitHub — portfolio presentation and version control.
+
+4. Dataset
+Table	           Records	                       Purpose	                                          Key Field
+customers        	10,000          	Customer demographic and income information                 	customer_id
+cards	            15,000	          Customer card information                                    	card_id / customer_id
+merchants	        2,000	            Merchant and category information	                            merchant_id
+branches	        250           	  Branch and geographic information	                            branch_id
+transactions	    100,000	          Credit card transaction records                              	transaction_id
+
+Data coverage:100,000 transactions across 10,000 customers, 15,000 cards, 2,000 merchants and 250 branches.
+
+5. Data Model & Relationships
+The analytical model connects customer, card, transaction, merchant and branch information.
+customers.customer_id → cards.customer_id
+cards.card_id → transactions.card_id
+merchants.merchant_id → transactions.merchant_id
+branches.branch_id → transactions.branch_id
+
+6. Data Preparation & Quality Checks
+•	Validated table and column structures using information_schema.
+•	Checked transaction, customer, card, merchant and branch record counts.
+•	Validated joins between customers, cards and transactions.
+•	Checked transaction status values including Approved, Declined and Reversed.
+•	Validated transaction dates and monthly date calculations.
+•	Checked aggregation logic for transaction amount, transaction count and average transaction value.
+•	Validated percentage calculations using decimal division.
+•	Verified Top-N ranking logic for customers, merchants and branches.
+•	Used SQL views to organize reusable analytical outputs for Power BI.
+
+7. Business Questions / SQL Analysis
+Analysis	                                                                                           Purpose
+Monthly Transaction Amount	                                                         Monitor transaction value trends over time.
+Monthly Transaction Volume	                                                         Track transaction activity by month and year.
+Customer Spending by Income                                                          Compare spending contribution across income groups.
+Customer Spending by Gender	                                                         Compare customer spending patterns.
+Customer Transaction Frequency	                                                     Identify low- and high-frequency customer behavior.
+Customers by Number of Cards	                                                       Understand card ownership distribution.
+Top 10 Customers by Transactions	                                                   Identify customers with the highest transaction frequency.
+Payment Mode Spending	                                                               Compare transaction spending across payment modes.
+Transaction Status Analysis                                                          Measure approved, declined and reversed transactions.
+Average Transaction Value by Category	                                               Identify categories with higher average transaction values.
+Card Network Spending                                                              	 Compare spending across card networks.
+State Transaction Analysis	                                                         Compare transaction amount and volume across states.
+Top Merchants by Spending	                                                           Identify merchants generating the highest transaction value.
+Category Transaction Volume	                                                         Compare transaction activity across merchant categories.
+Transaction Status by Category	                                                     Compare transaction outcomes across categories.
+Average Transaction Value by Merchant	                                               Identify merchants with higher average transaction values.
+Category Spending Contribution	                                                     Measure each category's contribution to total spending.
+Branch Spending	                                                                     Compare branch-level transaction amounts.
+Branch Transaction Volume	                                                           Compare branch-level transaction activity.
+Branch Decline Rate	                                                                 Monitor decline performance across branches.
+Customer Distribution by State	                                                     Understand geographic customer concentration.
+City Transaction Spending	                                                           Compare transaction spending across cities.
+
+8. Core KPI Results                                                                                                       
+      KPI	                               Value	                                                       Meaning
+Total Transactions	                  100,000	                                                  All transaction records
+Total Transaction Amount             	₹4,351,875,656.70                                        	Total transaction value
+Average Transaction Value 	          ≈ ₹43.52K	                                                Average amount per transaction
+Approved Transactions	                66,736	                                                  Approved transaction count
+Approval Rate                        	66.74%	                                                  Approved transactions as a share of total
+Declined Transactions        	        16,552	                                                  Declined transaction count
+Decline Rate	                        16.55%	                                                  Declined transactions as a share of total
+Reversed Transactions	                16,712	                                                  Reversed transaction count
+Reversal Rate	                        16.71%	                                                  Reversed transactions as a share of total
+Total Customers	                      10,000                                                   	Customer records
+Repeat Customers                      7,705	                                                    Customers with more than one transaction
+Average Revenue per Customer	        ≈ ₹562.61K	                                              Average transaction value per transacting customer
+Total Cards	                          15,000                                                   	Cards in the card table
+Total Merchants                       2,000	                                                    Merchants in the merchant table
+Total Branches	                      250	                                                      Branches in the branch table
+
+
+9. Power BI Dashboard
+The Power BI report contains 5 analytical pages, 18 KPI cards and 25 visualizations.
+Page 1 — Executive Overview
+•	KPI Cards: Total Transaction Amount, Total Transactions, Average Transaction Value, Approved Transactions, Approval Rate and Decline Rate.
+•	Monthly Transaction Amount.
+•	Monthly Transaction Volume.
+•	Spending by Merchant Category.
+•	Spending by Card Type.
+•	Top 10 Customers by Spending.
+•	Slicers: Year, Card Type and Transaction Status.
+
+Page 2 — Customer Analysis
+•	KPI Cards: Total Customers, Repeat Customers and Average Revenue per Customer.
+•	Customer Spending by Income.
+•	Customer Spending by Gender.
+•	Customer Transaction Frequency.
+•	Customers by Number of Cards.
+•	Top 10 Customers by Transactions.
+•	Slicers: Gender, Income Group and State.
+
+Page 3 — Transaction Analysis
+•	KPI Cards: Total Transactions, Approved Transactions and Average Transaction Value.
+•	Spending by Payment Mode.
+•	Transaction Status Distribution.
+•	Average Transaction Value by Category.
+•	Spending by Card Network.
+•	Transactions by State.
+•	Slicers: Transaction Status, Payment Mode and Card Network.
+
+Page 4 — Merchant & Category Analysis
+•	KPI Cards: Total Merchants, Top Merchant Spending and Average Transaction Value.
+•	Top 10 Merchants by Spending.
+•	Transaction Volume by Category.
+•	Transaction Status by Category.
+•	Average Transaction Value by Merchant.
+•	Category Spending Contribution.
+•	Slicers: Merchant Category, City and Transaction Status.
+
+Page 5 — Geographic & Branch Analysis
+•	KPI Cards: Total Branches, Top Branch Spending and Average Branch Transaction Amount.
+•	Branch Spending.
+•	Branch Transaction Volume.
+•	Branch Decline Rate.
+•	Customer Distribution by State.
+•	Transaction Spending by City.
+•	Slicers: State, City and Branch.
+
+10. Key Analytical Insights
+•	Transaction value and transaction volume provide complementary views of overall card activity.
+•	Approved transactions represent the largest transaction-status group, while declined and reversed transactions provide important operational monitoring signals.
+•	Customer spending can be compared across income groups and gender to understand spending concentration.
+•	Transaction frequency highlights customers who transact more often and can support customer behavior analysis.
+•	Payment mode and card network analysis helps compare transaction value across payment channels.
+•	Top merchant analysis identifies merchants that contribute the greatest transaction spending.
+•	Category spending contribution shows how individual merchant categories contribute to overall transaction value.
+•	Branch and city analysis highlights geographic differences in transaction activity and spending.
+•	State-level customer distribution helps identify geographic concentration of the customer base.
+
+11. SQL Techniques Demonstrated
+•	SELECT, WHERE and ORDER BY
+•	INNER JOIN and multi-table joins
+•	GROUP BY and HAVING
+•	Aggregate functions: SUM, COUNT, AVG
+•	CASE expressions
+•	FILTER for conditional aggregation
+•	ROUND and decimal percentage calculations
+•	DATE_TRUNC, EXTRACT and TO_CHAR for time analysis
+•	Common Table Expressions (CTEs)
+•	Subqueries
+•	Views
+•	Top-N analysis and ranking
+•	Distinct customer analysis
+•	Power BI-ready analytical datasets
+
+12. Portfolio / Project Files
+GitHub Repository: https://github.com/shyam-analytics/credit-card-transaction-analytics
+Power BI Dashboard: Credit_Card_Transaction_Analysis.pbix
+SQL Analysis: Credit_Card_Transaction_Analytics_project_2.sql
+Dashboard screenshots: Executive Overview, Customer Analysis, Transaction Analysis, Merchant & Category Analysis, Geographic & Branch Analysis
+README.md: project overview, objectives, tools, analysis, dashboard and insights
+
+13. Professional Resume / LinkedIn Description
+Built an end-to-end Credit Card Transaction Analytics project using PostgreSQL and Power BI. 
+Analyzed 100K credit card transactions across customer, card, merchant and branch datasets, performing customer spending, transaction status, payment mode, card network, merchant, category and geographic analysis. 
+Developed a five-page interactive Power BI dashboard with 18 KPI cards and 25 visualizations to monitor transaction performance, 
+customer behavior, merchant spending and branch performance.
+
+14. Project Highlights
+•	100,000 credit card transactions analyzed.
+•	10,000 customers and 15,000 cards.
+•	2,000 merchants and 250 branches.
+•	18 KPI cards across five Power BI pages.
+•	25 Power BI visualizations.
+•	Approval, decline and reversal analysis.
+•	Customer, merchant, payment, card network and geographic analysis.
+•	Reusable PostgreSQL analytical views.
+•	Interactive Power BI slicers.
+•	Professional GitHub portfolio repository.
+
+
+
+
+
